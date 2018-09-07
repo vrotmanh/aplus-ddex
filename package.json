@@ -1,0 +1,40 @@
+{
+  "name": "aplus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "npm run start:testrpc",
+    "start:testrpc": "ganache-cli -p 7545 -i 5777",
+    "migrate": "truffle migrate",
+    "test": "truffle test",
+    "lint:sol": "solium -d contracts",
+    "coverage": "solidity-coverage"
+  },
+  "keywords": [],
+  "author": "Winning Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "bs58": "^4.0.1",
+    "ethereumjs-util": "5.2.0",
+    "ganache-cli": "^6.0.3",
+    "multihashes": "^0.4.13",
+    "solidity-coverage": "0.5.2",
+    "solium": "1.1.7",
+    "truffle": "4.1.11"
+  },
+  "dependencies": {
+    "openzeppelin-solidity": "1.10.0",
+    "truffle-hdwallet-provider": "0.0.5",
+    "truffle-hdwallet-provider-privkey": "^0.2.0",
+    "truffle-privatekey-provider": "^0.1.0"
+  }
+}
