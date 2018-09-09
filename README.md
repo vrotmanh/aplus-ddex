@@ -1,6 +1,8 @@
 # Aplus
 
+# Team
 
+[Vicente Rotman, Godfrey Hobbs, Noah Passalacqua, Anthony Albertorio]
 
 # AplusListings
 address: 0xae73ddac98cb901defe802904172495396b486ce
