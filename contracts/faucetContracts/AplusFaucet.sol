@@ -6,21 +6,23 @@ contract ERC20 {
 }
 
 contract AplusEscrows {
-function claimTokens(bytes32 dataHash, address buyer) public; 
 
-function tokensAlreadyClaimed(bytes32 dataHash, address buyer) public view returns(bool);
+    function tokensAlreadyClaimed(bytes32 dataHash, address buyer) public view returns(bool);
 }
 
 contract AplusFaucet {
     event withdrawlEvent(address indexed _sender, uint256 _value, bytes32 hash);
     
+    mapping (bytes32 => mapping (address => bool)) alreadyClaimed;
+    
     function withdrawl(address addr, address addrDdex, bytes32 hash) public {
          ERC20 token = ERC20(addr);
+         require(!alreadyClaimed[hash][msg.sender]);
+         require(hash != 0x0);
          AplusEscrows ae = AplusEscrows(addrDdex);
-         
          require(!ae.tokensAlreadyClaimed(hash, msg.sender));
-         ae.claimTokens(hash, msg.sender);
          
+         alreadyClaimed[hash][msg.sender] = true;
          uint256 reward = 10 ether;
          token.transfer(msg.sender, reward);
          emit withdrawlEvent(msg.sender, reward, hash);
